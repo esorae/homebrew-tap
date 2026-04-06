@@ -1,0 +1,39 @@
+name: Update Formula
+
+on:
+  repository_dispatch:
+    types: [update-formula]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update Formula
+        run: |
+          TAG="${{ github.event.client_payload.tag }}"
+          VER="${TAG#v}"
+          REPO="${{ github.event.client_payload.repo }}"
+          BASE="https://github.com/${REPO}/releases/download/${TAG}"
+
+          for TARGET in aarch64-apple-darwin x86_64-apple-darwin x86_64-unknown-linux-gnu aarch64-unknown-linux-gnu; do
+            SHA=$(curl -sL "${BASE}/ccsight-${TARGET}.tar.gz" | sha256sum | cut -d' ' -f1)
+            if [ "$SHA" = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" ]; then
+              echo "ERROR: Empty file for $TARGET"
+              exit 1
+            fi
+            echo "${TARGET}: ${SHA}"
+            sed -i "s|releases/download/v[^/]*/ccsight-${TARGET}|releases/download/${TAG}/ccsight-${TARGET}|" Formula/ccsight.rb
+            sed -i "/ccsight-${TARGET}/{ n; s/sha256 \".*\"/sha256 \"${SHA}\"/; }" Formula/ccsight.rb
+          done
+          sed -i "s/version \".*\"/version \"${VER}\"/" Formula/ccsight.rb
+
+      - name: Commit & Push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Formula/ccsight.rb
+          git diff --cached --quiet && exit 0
+          git commit -m "Update ccsight to ${{ github.event.client_payload.tag }}"
+          git push
