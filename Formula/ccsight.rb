@@ -7,22 +7,22 @@ class Ccsight < Formula
   on_macos do
     on_arm do
       url "https://github.com/esorae/ccsight/releases/download/v1.0.2/ccsight-aarch64-apple-darwin.tar.gz"
-      sha256 "00394a4bfd0f3136bd1274cde7e08635b8b625e2bdc34de4fff01f7c17337b6a"
+      sha256 "41c63ca3d22fb5e839b6ad411ea60400bc96b8d784f07798d6fc66eadda25c6e"
     end
     on_intel do
       url "https://github.com/esorae/ccsight/releases/download/v1.0.2/ccsight-x86_64-apple-darwin.tar.gz"
-      sha256 "feb62cd7bd21696a9d93e93ee48a0ded57961f715990c690622ec2acf875b324"
+      sha256 "ed60db375edb6e951e5a6f30a17bb505fa29240223182e4ca4fb85aa47cc6a0a"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/esorae/ccsight/releases/download/v1.0.2/ccsight-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "b00c2d3cf9e5fb78337ce2b1f60f8700ff3a77f563df88c1609f5eca3826afe6"
+      sha256 "133c4d93d37759a075e5bc52e87319743cd95e4df5300dda7276ec8dcd4eabf4"
     end
     on_intel do
       url "https://github.com/esorae/ccsight/releases/download/v1.0.2/ccsight-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "3aade1be15eb32c1b567f70a5d9a8a734b50595e5dffdfa65ffaf4882caafe28"
+      sha256 "8e6db28fcbc40108e18491c1303414abc0df11926068622e59f06b22536126fb"
     end
   end
 
