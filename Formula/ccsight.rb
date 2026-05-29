@@ -1,28 +1,28 @@
 class Ccsight < Formula
   desc "Claude Code session analytics TUI"
   homepage "https://github.com/esorae/ccsight"
-  version "1.2.2"
+  version "1.2.3"
   license any_of: ["MIT", "Apache-2.0"]
 
   on_macos do
     on_arm do
-      url "https://github.com/esorae/ccsight/releases/download/v1.2.2/ccsight-aarch64-apple-darwin.tar.gz"
-      sha256 "3749dbf9266f59b427877e74295728891e6631365bbb720f9a957fd5a190cc12"
+      url "https://github.com/esorae/ccsight/releases/download/v1.2.3/ccsight-aarch64-apple-darwin.tar.gz"
+      sha256 "54077147b753aa4bab23197183632d955252a0e7b5db3140ff0fa3a637e8ae9b"
     end
     on_intel do
-      url "https://github.com/esorae/ccsight/releases/download/v1.2.2/ccsight-x86_64-apple-darwin.tar.gz"
-      sha256 "54ebd6e49a7eef4994ca3bc826cefcd025f59c021ba27952997957be494d985f"
+      url "https://github.com/esorae/ccsight/releases/download/v1.2.3/ccsight-x86_64-apple-darwin.tar.gz"
+      sha256 "6c7f6ae68fa296a9c3a6ffbb54e299c343fffe88463517567fae9998da4f6025"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/esorae/ccsight/releases/download/v1.2.2/ccsight-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "dde629a3d4fbfbb510e52abbdec5e37effea5cfe7ad1d1dd9412c0ed1c505545"
+      url "https://github.com/esorae/ccsight/releases/download/v1.2.3/ccsight-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "3ad3c02f4592035dabd530d5e364b4a3d3aafa58e7edcf48985d66502c279da7"
     end
     on_intel do
-      url "https://github.com/esorae/ccsight/releases/download/v1.2.2/ccsight-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "25f0ffd39e4c2184fdbe46c54770d132e8db7c803ea116631a02746fdce5dc41"
+      url "https://github.com/esorae/ccsight/releases/download/v1.2.3/ccsight-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "78229fc7928746bdb706e0ef23ee638d0b850ee8d8cb463fd25e2c87a690c361"
     end
   end
 
